@@ -1,0 +1,63 @@
+{
+  "api": {
+    "titles": [
+      "Apartment Blue Adriatic",
+      "The Z Hotel ShoreditchOpens",
+      "Hotel Le MareuilOpens",
+      "ClinkNOORD Hostel",
+      "Apartment-Hotel Hamburg MitteOpens"
+    ],
+    "descriptions": [
+      "Offering sea views and free WiFi",
+      "Queen Room without Window",
+      "Standard Double Room with Spa Access",
+      "Private twin en-suite room",
+      "Double Room with Kitchenette"
+    ],
+    "previewImagesPath": [
+      "https://www.test.com/test1.jpg",
+      "https://www.test.com/test2.jpg",
+      "https://www.test.com/test3.jpg",
+      "https://www.test.com/test4.jpg",
+      "https://www.test.com/test5.jpg"
+    ],
+    "images": [
+      "https://www.test.com/Paris.jpg",
+      "https://www.test.com/Cologne.jpg",
+      "https://www.test.com/Brussels.jpg",
+      "https://www.test.com/Dusseldorf.jpg",
+      "https://www.test.com/Amsterdam.jpg"
+    ],
+    "users": [
+      "Иван Иванов",
+      "Олег Сидоров",
+      "Пьер Безухов",
+      "Роланд Дискейн",
+      "Холи Гибни",
+      "Джек Торренс",
+      "Антон Городецкий",
+      "Борис Гесер",
+      "Рокки Бальбоа",
+      "Джон Смит"
+    ],
+    "emails": [
+      "snow@pisem.local",
+      "president@dka.local",
+      "fish@big.local",
+      "test@pisem.local",
+      "freedom@pisem.local",
+      "rolan@pochta.local",
+      "author@mir.local",
+      "test@lost.loca",
+      "kujo-fan@story.local"
+    ],
+    "avatars": [
+      "user.jpg",
+      "photo.jpg",
+      "awesome-avatar.jpg",
+      "roland.jpg",
+      "smit.jpg",
+      "coffee.jpg"
+    ]
+  }
+}
