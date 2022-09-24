@@ -13,7 +13,7 @@ export default class OfferGenerator implements OfferGeneratorInterface {
   public generate(): string {
     const title = getRandomItem<string>(this.mockData.titles);
     const description = getRandomItem<string>(this.mockData.descriptions);
-    const createdDate = dayjs().subtract(generateRandomValue(1, 7), 'day').toISOString();
+    const postDate = dayjs().subtract(generateRandomValue(1, 7), 'day').toISOString();
     const city = getRandomItem(Object.values(CityType));
     const previewPath = getRandomItem<string>(this.mockData.previewImagesPath);
     const images = getRandomItems<string>(this.mockData.previewImagesPath).join(';');
@@ -24,21 +24,20 @@ export default class OfferGenerator implements OfferGeneratorInterface {
     const guestsCount = generateRandomValue(1, 10);
     const price = generateRandomValue(100, 100_000);
     const facilities = getRandomItems(Object.keys(Facilities)).join(';');
-    const commentsCount = generateRandomValue(0, 1000);
+    const commentCount = generateRandomValue(0, 1000);
     const latitude = generateRandomValue(0, 90, 6);
     const longitude = generateRandomValue(0, 180, 6);
     const name = getRandomItem<string>(this.mockData.users);
     const email = getRandomItem<string>(this.mockData.emails);
     const avatar = getRandomItem<string>(this.mockData.avatars);
-    const password = Math.random().toString(36).slice(-8);
     const isPro = getRandomBoolean();
 
     return [
-      title, description, createdDate, city,
+      title, description, postDate, city,
       previewPath, images, isPremium, rating,
       type, bedroomsCount, guestsCount, price,
-      facilities, commentsCount, latitude, longitude,
-      name, email, avatar, password, isPro
+      facilities, commentCount, latitude, longitude,
+      name, email, avatar, isPro
     ].join('\t');
   }
 }
