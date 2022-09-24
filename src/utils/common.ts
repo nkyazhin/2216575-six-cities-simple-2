@@ -1,3 +1,4 @@
+import crypto from 'crypto';
 import { OfferType } from '../types/offer-type.enum.js';
 import { Offer } from '../types/offer.type.js';
 import { CityType } from '../types/city-type.enum.js';
@@ -8,7 +9,7 @@ export const createOffer = (row: string): Offer => {
   const [
     title,
     description,
-    createdDate,
+    postDate,
     city,
     previewPath,
     images,
@@ -19,19 +20,18 @@ export const createOffer = (row: string): Offer => {
     guestsCount,
     price,
     facilities,
-    commentsCount,
+    commentCount,
     latitude,
     longitude,
     name,
     email,
     avatarPath,
-    password,
     isPro
   ] = tokens;
   return {
     title,
     description,
-    createdDate: new Date(createdDate),
+    postDate: new Date(postDate),
     city: CityType[city as 'Paris' | 'Cologne' | 'Brussels' | 'Amsterdam' | 'Hamburg' | 'Dusseldorf'],
     previewPath,
     images: images.split(';'),
@@ -42,16 +42,13 @@ export const createOffer = (row: string): Offer => {
     guestsCount: Number.parseInt(guestsCount, 10),
     price: Number.parseInt(price, 10),
     facilities: facilities.split(';').map((facility) => Facilities[facility as 'Breakfast' | 'AirConditioning' | 'Workspace' | 'BabySeat' | 'Washer' | 'Towels' | 'Fridge' ]),
-    commentsCount: Number.parseInt(commentsCount, 10),
-    location: {
-      latitude: Number.parseFloat(latitude),
-      longitude: Number.parseFloat(longitude)
-    },
+    commentCount: Number.parseInt(commentCount, 10),
+    latitude: Number.parseFloat(latitude),
+    longitude: Number.parseFloat(longitude),
     author: {
       name,
       email,
       avatarPath,
-      password,
       isPro: Boolean(isPro)
     },
   };
@@ -59,3 +56,8 @@ export const createOffer = (row: string): Offer => {
 
 export const getErrorMessage = (error: unknown): string =>
   error instanceof Error ? error.message : '';
+
+export const createSHA256 = (line: string, salt: string): string => {
+  const shaHasher = crypto.createHmac('sha256', salt);
+  return shaHasher.update(line).digest('hex');
+};
